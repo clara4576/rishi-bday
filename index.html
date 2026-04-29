@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* 🌈 Pastel Moving Gradient */
+body {
+    background: linear-gradient(270deg, #ffd6e0, #d6f0ff, #e6d6ff);
+    background-size: 600% 600%;
+    animation: wave 10s ease infinite;
+}
+
+@keyframes wave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 📦 Pages */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #444;
+}
+
+/* Hide second page initially */
+#page2 {
+    display: none;
+}
+
+/* 🎁 Content */
+.container {
+    margin-top: 80px;
+}
+
+.gif {
+    width: 250px;
+    border-radius: 20px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+/* 💗 Heart Button */
+.heart-btn {
+    font-size: 60px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s;
+}
+
+.heart-btn:hover {
+    transform: scale(1.2);
+}
+
+/* 💌 Message */
+.message {
+    width: 60%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* 💕 Floating Hearts */
+.hearts span {
+    position: absolute;
+    bottom: -50px;
+    opacity: 0.4;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ❤️ PAGE 1 -->
+<div id="page1" class="page">
+    <div class="container">
+        <img src="your-gif.gif" class="gif">
+        <h1>Happy Birthday 💕</h1>
+        <div class="heart-btn" onclick="nextPage()">💗</div>
+    </div>
+</div>
+
+<!-- 💌 PAGE 2 -->
+<div id="page2" class="page">
+    <div class="container">
+        <h1>For You 💖</h1>
+
+        <p class="message">
+            Happy Birthday ra naa pichi friend 💖<br><br>
+
+            Nuvvu naa life lo ochinappati nunchi everything became more colourful 😊<br>
+            Nee navvu chusthe stress antha poorthiga pothadi 😌<br><br>
+
+            Nuvvu ilaane always happy ga undali,<br>
+            nee dreams anni nijam avvali ✨<br><br>
+
+            And remember...<br>
+            nenu always nee pakkana untanu 💕<br><br>
+
+            Once again Happy Birthday ra 💗🎂
+        </p>
+    </div>
+</div>
+
+<!-- 💕 HEARTS -->
+<div class="hearts"></div>
+
+<script>
+
+/* ➡️ Switch Page */
+function nextPage() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+}
+
+/* 💕 Floating Hearts Generator */
+const heartsContainer = document.querySelector('.hearts');
+
+for (let i = 0; i < 25; i++) {
+    let heart = document.createElement("span");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+    heartsContainer.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
